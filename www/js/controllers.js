@@ -76,7 +76,15 @@ $scope.onSuccess = function(position) {
           'message: ' + error.message + '\n');
 }
 
-navigator.geolocation.getCurrentPosition($scope.onSuccess, $scope.onError, { maximumAge: 3000, enableHighAccuracy: true });
+
+try {
+    navigator.geolocation.getCurrentPosition($scope.onSuccess, $scope.onError, { maximumAge: 3000, enableHighAccuracy: true });
+}
+catch(err) {
+    alert(err.message);
+}
+
+
 
         
   
